@@ -14,6 +14,8 @@ jobs:
           python-version: '3.11'
 
       - name: Run Python script
+        env:
+          SECRET_API_TOKEN: ${{ secrets.SECRET_API_TOKEN }}
         run: python job.py
 
       - name: Write a file
