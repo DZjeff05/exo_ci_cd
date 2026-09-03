@@ -1,7 +1,6 @@
 name: GitHub Actions Demo
 on:
-  schedule:
-    - cron: '* * * * *'
+  workflow_dispatch:
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
@@ -16,3 +15,6 @@ jobs:
 
       - name: Run Python script
         run: python job.py
+
+      - name: Write a file
+        run: echo "hello scp!" > output.txt
