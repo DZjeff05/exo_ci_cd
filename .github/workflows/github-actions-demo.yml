@@ -18,3 +18,9 @@ jobs:
 
       - name: Write a file
         run: echo "hello scp!" > output.txt
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mon-fichier
+          path: output.txt
