@@ -40,3 +40,10 @@ jobs:
 
       - name: Run unit tests
         run: python -m unittest test_addition.py
+      - run: |
+          mkdir ~/.ssh
+          ssh-keyscan $HOST > ~/.ssh/known_hosts
+          sshpass -p "$SSH_PASSWORD" scp addition.py ubuntu@$HOST
+        env:
+          SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
+          HOST: 20.56.74.49
